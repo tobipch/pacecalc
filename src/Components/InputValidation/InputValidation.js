@@ -2,7 +2,7 @@ import React from "react";
 import Alert from "@material-ui/lab/alert";
 
 // Components
-import Result from "../Result/Result";
+import ResultContainer from "../ResultContainer/ResultContainer";
 
 const InputValidation = props => {
 	let validationResult = "";
@@ -25,7 +25,7 @@ const InputValidation = props => {
 
 	if(inputsValid){
 		return (
-			<Result inputsWithValue={props.inputsWithValue} inputs={props.inputs} />
+			<ResultContainer inputsWithValue={props.inputsWithValue} inputs={props.inputs} />
 		);
 	} else {
 		return validationResult;

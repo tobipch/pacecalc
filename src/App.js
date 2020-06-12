@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-// import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
+import Divider from '@material-ui/core/Divider';
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 
@@ -9,11 +10,12 @@ import Header from "./Components/Header/Header";
 import InputValidation from "./Components/InputValidation/InputValidation";
 import InputContainer from "./Components/InputContainer/InputContainer";
 
-// const useStyle = makeStyles(theme => ({
-// 	paper: {
-// 		padding:theme.spacing(1.5)
-// 	}
-// }));
+const useStyle = makeStyles(theme => ({
+	container: {
+		marginBottom:theme.spacing(4),
+		marginTop:theme.spacing(4)
+	}
+}));
 
 const initialState = {
 	inputs: [
@@ -25,7 +27,7 @@ const initialState = {
 }
 
 const App = props => {
-	//const classes = useStyle();
+	const classes = useStyle();
 	const [inputs, setInputs] = useState(initialState.inputs);
 	const [inputsWithValue, setInputsWithValue] = useState(initialState.inputsWithValue);
 
@@ -57,7 +59,7 @@ const App = props => {
 	return (
 		<div className="App">
 			<Header />
-			<Container maxWidth="md">
+			<Container maxWidth="md" className={classes.container}>
 				<InputContainer 
 					updateInput={updateInputHandler}
 					inputs={inputs}
@@ -69,9 +71,13 @@ const App = props => {
 					startIcon={<DeleteIcon />}
 					variant="contained"
 					color="primary">
-					Clear Input
+					Clear All
 				</Button>
+			</Container>
+			
+			<Divider variant="middle" />
 
+			<Container maxWidth="md" className={classes.container}>
 				<InputValidation 
 					inputsWithValue={inputsWithValue} 
 					inputs={inputs}

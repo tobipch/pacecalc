@@ -70,7 +70,8 @@ const App = props => {
 					onClick={deleteInputHandler}
 					startIcon={<DeleteIcon />}
 					variant="contained"
-					color="primary">
+					color="primary"
+					disabled={inputsWithValue.length ? false : true}>
 					Clear All
 				</Button>
 			</Container>

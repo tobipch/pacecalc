@@ -9,11 +9,15 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import Header from "./Components/Header/Header";
 import InputValidation from "./Components/InputValidation/InputValidation";
 import InputContainer from "./Components/InputContainer/InputContainer";
+import ResultContainer from "./Components/ResultContainer/ResultContainer";
 
 const useStyle = makeStyles(theme => ({
 	container: {
 		marginBottom:theme.spacing(4),
 		marginTop:theme.spacing(4)
+	},
+	clearButton: {
+		width:"calc(100% - 56px)"
 	}
 }));
 
@@ -66,6 +70,7 @@ const App = props => {
 				/>
 
 				<Button 
+					className={classes.clearButton}
 					fullWidth 
 					onClick={deleteInputHandler}
 					startIcon={<DeleteIcon />}
@@ -81,8 +86,11 @@ const App = props => {
 			<Container maxWidth="md" className={classes.container}>
 				<InputValidation 
 					inputsWithValue={inputsWithValue} 
-					inputs={inputs}
-				/>
+					inputs={inputs}>
+					<ResultContainer 
+						inputsWithValue={inputsWithValue} 
+						inputs={inputs} />
+				</InputValidation>
 			</Container>
 		</div>
 	);

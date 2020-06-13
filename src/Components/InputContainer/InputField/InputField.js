@@ -41,6 +41,8 @@ const InputField = props => {
 			<FormControl
 				fullWidth>
 				<Textfield
+					// Not type="number" because of inconsistencies about allowing non-numeric characters
+					// (https://material-ui.com/components/text-fields/#shrink)
 					type="text"
 					className={classes.inputField}
 					label={props.label}

@@ -43,7 +43,7 @@ const App = props => {
 			inputName:inputName,
 			inputValue:event.target.value,
 			inputFormat:inputCopy.find(el => el.inputName === inputName).inputFormat};
-			setInputs(inputCopy);
+		setInputs(inputCopy);
 			
 		// Update list containing inputs who have value
 		const currentInputsWithValue = [...inputsWithValue];
@@ -54,11 +54,20 @@ const App = props => {
 		}
 		setInputsWithValue(currentInputsWithValue);
 	}
-
-	const deleteInputHandler = () => {
+	
+	const clearAllInputsHandler = () => {
 		setInputs(initialState.inputs);
 		setInputsWithValue(initialState.inputsWithValue);
 	}
+	
+	const clearInputHandler = (inputName) => {
+		const inputsCopy = [...inputs];
+		const inputsWithValueCopy = [...inputsWithValue];
+		inputsCopy.find(el => el.inputName === inputName).inputValue = "";
+		inputsWithValueCopy.splice(inputsWithValueCopy.indexOf(inputName),1);
+		setInputs(inputsCopy);
+		setInputsWithValue(inputsWithValueCopy);
+	} 
 
 	return (
 		<div className="App">
@@ -66,13 +75,14 @@ const App = props => {
 			<Container maxWidth="md" className={classes.container}>
 				<InputContainer 
 					updateInput={updateInputHandler}
+					clearInput={clearInputHandler}
 					inputs={inputs}
 				/>
 
 				<Button 
 					className={classes.clearButton}
 					fullWidth 
-					onClick={deleteInputHandler}
+					onClick={clearAllInputsHandler}
 					startIcon={<DeleteIcon />}
 					variant="contained"
 					color="primary"

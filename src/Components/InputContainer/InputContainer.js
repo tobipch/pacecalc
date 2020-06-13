@@ -8,11 +8,11 @@ const InputContainer = props => {
 		return (
 			<InputField
 				key={input.inputName}
-				label={input.inputName}
 				adornment={input.inputFormat}
 				value={input.inputValue}
 				inputName={input.inputName}
 				change={props.updateInput}
+				clearInput={props.clearInput}
 			/>
 		)
 	});

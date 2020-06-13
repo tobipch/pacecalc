@@ -45,7 +45,7 @@ const InputField = props => {
 					// (https://material-ui.com/components/text-fields/#shrink)
 					type="text"
 					className={classes.inputField}
-					label={props.label}
+					label={props.inputName}
 					variant="outlined"
 					value={props.value}
 					InputProps={{
@@ -61,7 +61,8 @@ const InputField = props => {
 			<IconButton 
 				className={classes.iconButton}
 				color="primary"
-				disabled={props.value.length ? false : true}>
+				disabled={props.value.length ? false : true}
+				onClick={() => props.clearInput(props.inputName)}>
 				<DeleteIcon />
 			</IconButton>
 		</Box>

@@ -22,8 +22,18 @@ const Header = () => {
 
 	return (
 		<Grid container justify="center" alignItems="baseline" className={classes.root}>
-			<Typography variant="h1" className={classes.headline}>Pacecalc</Typography>
-			<Typography variant="subtitle2" component="h2" className={classes.subtitle}>v2</Typography>
+			<Typography
+				variant="h1" 
+				className={classes.headline}>
+				Pacecalc
+			</Typography>
+
+			<Typography
+				variant="subtitle2"
+				component="h2"
+				className={classes.subtitle}>
+				v2
+			</Typography>
 		</Grid>
 	);
 };

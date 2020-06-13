@@ -15,19 +15,16 @@ const useStyle = makeStyles(theme => ({
 	container: {
 		marginBottom:theme.spacing(4),
 		marginTop:theme.spacing(4)
-	},
-	clearButton: {
-		width:"calc(100% - 56px)"
 	}
 }));
 
 const initialState = {
 	inputs: [
 		{inputName: "distance", inputValue:"", inputFormat:"m"},
-		{inputName: "time", inputValue:"", inputFormat:"min"},
-		{inputName: "pace", inputValue:"", inputFormat:"min/km"}
+		{inputName: "time", inputValue:"1020", inputFormat:"s"},
+		{inputName: "pace", inputValue:"4", inputFormat:"min/km"}
 	],
-	inputsWithValue: []
+	inputsWithValue: ["time", "pace"]
 }
 
 const App = props => {
@@ -80,7 +77,6 @@ const App = props => {
 				/>
 
 				<Button 
-					className={classes.clearButton}
 					fullWidth 
 					onClick={clearAllInputsHandler}
 					startIcon={<DeleteIcon />}

@@ -20,11 +20,23 @@ const useStyle = makeStyles(theme => ({
 
 const initialState = {
 	inputs: [
-		{inputName: "distance", inputValue:"", inputFormat:"m"},
-		{inputName: "time", inputValue:"1020", inputFormat:"s"},
-		{inputName: "pace", inputValue:"4", inputFormat:"min/km"}
+		{inputName: "distance", inputValue:"", inputUnit:"m"},
+		{inputName: "time", inputValue:"1020", inputUnit:"s"},
+		{inputName: "pace", inputValue:"4", inputUnit:"min/km"}
 	],
 	inputsWithValue: ["time", "pace"]
+}
+
+const units = {
+	distance: [
+		{unit:"m", inputHelper:""}
+	],
+	time: [
+		{unit:"s", inputHelper:""}
+	],
+	pace: [
+		{unit:"min/km", inputHelper:""}
+	]
 }
 
 const App = props => {
@@ -39,7 +51,7 @@ const App = props => {
 		inputCopy[inputIndex] = {
 			inputName:inputName,
 			inputValue:event.target.value,
-			inputFormat:inputCopy.find(el => el.inputName === inputName).inputFormat};
+			inputUnit:inputCopy.find(el => el.inputName === inputName).inputUnit};
 		setInputs(inputCopy);
 			
 		// Update list containing inputs who have value
@@ -73,6 +85,7 @@ const App = props => {
 				<InputContainer 
 					updateInput={updateInputHandler}
 					clearInput={clearInputHandler}
+					units={units}
 					inputs={inputs}
 				/>
 

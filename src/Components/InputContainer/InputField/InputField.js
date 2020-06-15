@@ -11,7 +11,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 const useStyles = makeStyles(theme => ({
 	root:{
 		display:"flex",
-		marginBottom:theme.spacing(1)
+		marginBottom:theme.spacing(2)
 	},
 	inputField: {
 		textTransform:"capitalize",
@@ -53,6 +53,7 @@ const InputField = props => {
 					}}
 					onChange={(event) => props.change(event,props.inputName)}
 					error={inputError ? true : false}
+					helperText={inputError ? null : props.inputHelper}
 				/>
 				<FormHelperText
 					className={classes.inputHelper}

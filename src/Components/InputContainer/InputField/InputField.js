@@ -3,8 +3,6 @@ import {makeStyles} from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Textfield from "@material-ui/core/TextField";
 import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 
@@ -15,14 +13,10 @@ const useStyles = makeStyles(theme => ({
 	},
 	inputField: {
 		textTransform:"capitalize",
-		height:"56px"
+		height:56
 	},
 	inputAdornment: {
 		textTransform:"lowercase"
-	},
-	iconButton: {
-		height:"56px",
-		width:"56px"
 	}
 }));
 
@@ -59,13 +53,6 @@ const InputField = props => {
 					className={classes.inputHelper}
 					error>{inputError ? inputErrorMessage : " "}</FormHelperText>
 			</FormControl>
-			<IconButton 
-				className={classes.iconButton}
-				color="primary"
-				disabled={props.value.length ? false : true}
-				onClick={() => props.clearInput(props.inputName)}>
-				<DeleteIcon />
-			</IconButton>
 		</Box>
 	);
 };

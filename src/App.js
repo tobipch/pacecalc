@@ -20,22 +20,27 @@ const useStyle = makeStyles(theme => ({
 
 const initialState = {
 	inputs: [
-		{inputName: "distance", inputValue:"", inputUnit:"m"},
-		{inputName: "time", inputValue:"1020", inputUnit:"s"},
-		{inputName: "pace", inputValue:"4", inputUnit:"min/km"}
+		{inputName:"distance", inputValue:"", inputUnit:"m", normalizedValue:null},
+		{inputName:"time", inputValue:"", inputUnit:"sec", normalizedValue:null},
+		{inputName:"pace", inputValue:"", inputUnit:"min/km", normalizedValue:null}
 	],
-	inputsWithValue: ["time", "pace"]
+	inputsWithValue: []
 }
 
 const units = {
 	distance: [
-		{unit:"m", inputHelper:""}
+		{unit:"m", inputHelper:"", normalize: val => val},
+		{unit:"km", inputHelper:"", normalize: val => val*1000},
+		{unit:"mi", inputHelper:"", normalize: val => val*1000*1.609344}
 	],
 	time: [
-		{unit:"s", inputHelper:""}
+		{unit:"sec", inputHelper:"", normalize: val => val},
+		{unit:"min", inputHelper:"", normalize: val => val*60},
+		{unit:"h", inputHelper:"", normalize: val => val*3600}
 	],
 	pace: [
-		{unit:"min/km", inputHelper:""}
+		{unit:"min/km", inputHelper:"", normalize: val => val},
+		{unit:"min/mi", inputHelper:"", normalize: val => val*1.609344}
 	]
 }
 
@@ -43,15 +48,19 @@ const App = props => {
 	const classes = useStyle();
 	const [inputs, setInputs] = useState(initialState.inputs);
 	const [inputsWithValue, setInputsWithValue] = useState(initialState.inputsWithValue);
-
-	const updateInputHandler = (event, inputName, inputValid) => {
+	
+	const updateInputHandler = (event, inputName) => {
 		// Update input values
 		const inputCopy = [...inputs];
 		const inputIndex = inputCopy.findIndex(el => el.inputName === inputName);
+		const newInputUnit = inputCopy.find(el => el.inputName === inputName).inputUnit;
+		const newInputUnitInfos = units[inputName].find(el => el.unit === newInputUnit);
 		inputCopy[inputIndex] = {
 			inputName:inputName,
 			inputValue:event.target.value,
-			inputUnit:inputCopy.find(el => el.inputName === inputName).inputUnit};
+			inputUnit:newInputUnit,
+			normalizedValue:newInputUnitInfos === undefined ? null : newInputUnitInfos.normalize(event.target.value)
+		};
 		setInputs(inputCopy);
 			
 		// Update list containing inputs who have value
@@ -76,7 +85,16 @@ const App = props => {
 		inputsWithValueCopy.splice(inputsWithValueCopy.indexOf(inputName),1);
 		setInputs(inputsCopy);
 		setInputsWithValue(inputsWithValueCopy);
-	} 
+	}
+
+	const updateUnit = (unitName, inputName) => {
+		// Update inputUnit of according inputName
+		const inputCopy = [...inputs];
+		const inputIndex = inputCopy.findIndex(el => el.inputName === inputName);
+		inputCopy[inputIndex].inputUnit = unitName;
+		inputCopy[inputIndex].normalizedValue = units[inputName].find(el => el.unit === unitName).normalize(inputCopy[inputIndex].inputValue);
+		setInputs(inputCopy);
+	}
 
 	return (
 		<div className="App">
@@ -85,6 +103,7 @@ const App = props => {
 				<InputContainer 
 					updateInput={updateInputHandler}
 					clearInput={clearInputHandler}
+					updateUnit={updateUnit}
 					units={units}
 					inputs={inputs}
 				/>

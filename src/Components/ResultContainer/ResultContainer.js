@@ -47,9 +47,9 @@ const ResultContainer = props => {
 	
 	const inputs = [...props.inputs];
 	const missingInput = inputs.filter(el => !props.inputsWithValue.includes(el.inputName))[0].inputName;
-	const distance = inputs.find(el => el.inputName === "distance").inputValue;
-	const time = inputs.find(el => el.inputName === "time").inputValue;
-	const pace = inputs.find(el => el.inputName === "pace").inputValue;
+	const distance = inputs.find(el => el.inputName === "distance").normalizedValue;
+	const time = inputs.find(el => el.inputName === "time").normalizedValue;
+	const pace = inputs.find(el => el.inputName === "pace").normalizedValue;
 
 	const formats = {
 		distance:[
@@ -110,11 +110,23 @@ const ResultContainer = props => {
 			{
 				format:"min/km",
 				tooltip:"minutes per kilometre",
-				value:(time / (distance / 1000) / 60).toFixed(2)},
+				value:(time / (distance / 1000) / 60).toFixed(2)
+			},
 			{
 				format:"min/mi",
 				tooltip:"minutes per miles",
-				value:(time / (distance / 1000) / 60 * 1.609344).toFixed(2)}
+				value:(time / (distance / 1000) / 60 * 1.609344).toFixed(2)
+			},
+			{
+				format:"km/h",
+				tooltip:"kilometres per hour",
+				value:((distance * 1000) / (time * 3600)).toFixed(2)
+			},
+			{
+				format:"m/s",
+				tooltip:"metres per second",
+				value:(distance / time).toFixed(2)
+			}
 		]
 	}
 

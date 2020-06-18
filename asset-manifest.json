@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/tobipch.github.io/pacecalc/static/css/main.a2b7b0b6.chunk.css",
-    "main.js": "/tobipch.github.io/pacecalc/static/js/main.7a45c159.chunk.js",
-    "main.js.map": "/tobipch.github.io/pacecalc/static/js/main.7a45c159.chunk.js.map",
-    "runtime-main.js": "/tobipch.github.io/pacecalc/static/js/runtime-main.182b76d8.js",
-    "runtime-main.js.map": "/tobipch.github.io/pacecalc/static/js/runtime-main.182b76d8.js.map",
-    "static/js/2.19b4e602.chunk.js": "/tobipch.github.io/pacecalc/static/js/2.19b4e602.chunk.js",
-    "static/js/2.19b4e602.chunk.js.map": "/tobipch.github.io/pacecalc/static/js/2.19b4e602.chunk.js.map",
-    "index.html": "/tobipch.github.io/pacecalc/index.html",
-    "precache-manifest.f43aa48b85eacd2aa26d4ee0f9b99ca1.js": "/tobipch.github.io/pacecalc/precache-manifest.f43aa48b85eacd2aa26d4ee0f9b99ca1.js",
-    "service-worker.js": "/tobipch.github.io/pacecalc/service-worker.js",
-    "static/css/main.a2b7b0b6.chunk.css.map": "/tobipch.github.io/pacecalc/static/css/main.a2b7b0b6.chunk.css.map",
-    "static/js/2.19b4e602.chunk.js.LICENSE.txt": "/tobipch.github.io/pacecalc/static/js/2.19b4e602.chunk.js.LICENSE.txt"
+    "main.css": "/pacecalc/static/css/main.a2b7b0b6.chunk.css",
+    "main.js": "/pacecalc/static/js/main.195b4dce.chunk.js",
+    "main.js.map": "/pacecalc/static/js/main.195b4dce.chunk.js.map",
+    "runtime-main.js": "/pacecalc/static/js/runtime-main.3cf4fcf2.js",
+    "runtime-main.js.map": "/pacecalc/static/js/runtime-main.3cf4fcf2.js.map",
+    "static/js/2.19b4e602.chunk.js": "/pacecalc/static/js/2.19b4e602.chunk.js",
+    "static/js/2.19b4e602.chunk.js.map": "/pacecalc/static/js/2.19b4e602.chunk.js.map",
+    "index.html": "/pacecalc/index.html",
+    "precache-manifest.454ba10477f9712ad8048edc5299fc53.js": "/pacecalc/precache-manifest.454ba10477f9712ad8048edc5299fc53.js",
+    "service-worker.js": "/pacecalc/service-worker.js",
+    "static/css/main.a2b7b0b6.chunk.css.map": "/pacecalc/static/css/main.a2b7b0b6.chunk.css.map",
+    "static/js/2.19b4e602.chunk.js.LICENSE.txt": "/pacecalc/static/js/2.19b4e602.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.182b76d8.js",
+    "static/js/runtime-main.3cf4fcf2.js",
     "static/js/2.19b4e602.chunk.js",
     "static/css/main.a2b7b0b6.chunk.css",
-    "static/js/main.7a45c159.chunk.js"
+    "static/js/main.195b4dce.chunk.js"
   ]
 }

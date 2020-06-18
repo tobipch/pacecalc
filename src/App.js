@@ -40,7 +40,7 @@ const units = {
 	],
 	pace: [
 		{unit:"min/km", inputHelper:"", normalize: val => val},
-		{unit:"min/mi", inputHelper:"", normalize: val => val*1.609344}
+		{unit:"min/mi", inputHelper:"", normalize: val => val/1.609344}
 	]
 }
 

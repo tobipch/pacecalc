@@ -32,7 +32,7 @@ const Header = () => {
 				variant="subtitle2"
 				component="h2"
 				className={classes.subtitle}>
-				v2
+				v2.1
 			</Typography>
 		</Grid>
 	);

@@ -14,7 +14,9 @@ import TableRow from '@material-ui/core/TableRow';
 const useStyle = makeStyles(theme => ({
 	resultPaper:{
 		padding:theme.spacing(2),
-		height:"100%"
+		[theme.breakpoints.up("md")]: {
+			height:"100%"
+		}
 	},
 	tableBody:{
 		"&:before":{
@@ -167,7 +169,8 @@ const ResultContainer = props => {
 				<Grid 
 					item
 					key={input}
-					xs={12 / inputsToDisplay.length}>	
+					md={12 / inputsToDisplay.length}
+					sm={12}>	
 					<Paper elevation={3} className={classes.resultPaper}>
 						<TableContainer>
 							<Table size="small">

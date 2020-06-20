@@ -24,10 +24,11 @@ const InputField = props => {
 	const classes = useStyles();
 	let inputError = false;
 	let inputErrorMessage = "";
+	const inputValidationRegex = props.inputValidation || /^\d*(\.?\d+?$|\.$)/;
 	
-	if(props.value.match(/^\d*(\.?\d+?$|\.$)/) === null && props.value.length > 0){
+	if(props.value.match(inputValidationRegex) === null && props.value.length > 0){
 		inputError = true;
-		inputErrorMessage = "Only numerical values are allowed.";
+		inputErrorMessage = props.inputValidationMessage || "Only numerical values are allowed.";
 	}
 
 	return (

@@ -49,6 +49,8 @@ const InputContainer = props => {
 						inputName={input.inputName}
 						change={props.updateInput}
 						clearInput={props.clearInput}
+						inputValidation={inputUnit.inputValidation}
+						inputValidationMessage={inputUnit.inputValidationMessage}
 						inputHelper={inputHelper == null ? null : inputHelper}
 					/>
 				</Grid>

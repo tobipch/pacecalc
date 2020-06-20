@@ -61,8 +61,6 @@ const ResultContainer = props => {
 		inputsToDisplay = ["distance","time","pace"].filter(el => el !== missingInput);
 		inputsToDisplay.unshift(missingInput);
 	}
-	
-	console.log(props.inputsWithValue);
 
 	const formats = {
 		distance:[

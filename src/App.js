@@ -36,12 +36,28 @@ const units = {
 	time: [
 		{unit:"sec", inputHelper:"", normalize:val => val},
 		{unit:"min", inputHelper:"", normalize:val => val*60},
-		{unit:"h", inputHelper:"", normalize:val => val*3600}
+		{unit:"h", inputHelper:"", normalize:val => val*3600}, //inputValidation
+		{
+			unit:"hh:mm:ss",
+			inputHelper:"Examples: 1:59:41 / 58:01 / 26:17.53",
+			normalize:val => normalizeHHMMSS(val),
+			inputValidation:/^(\d{0,2}(:|\.)?){1,4}$/,
+			inputValidationMessage:"Input most match the format hh:mm:ss.f"
+		}
 	],
 	pace: [
 		{unit:"min/km", inputHelper:"", normalize:val => val},
 		{unit:"min/mi", inputHelper:"", normalize:val => val/1.609344}
 	]
+}
+
+const normalizeHHMMSS = value => {
+	const values = value.split(":");
+	const seconds = values.pop();
+	const minutes = values.length ? values.pop() : 0;
+	const hours = values.length ? values.pop() : 0;
+
+	return +seconds + +minutes * 60 + +hours * 3600;
 }
 
 const App = props => {
@@ -124,7 +140,8 @@ const App = props => {
 			<Container maxWidth="md" className={classes.container}>
 				<InputValidation 
 					inputsWithValue={inputsWithValue} 
-					inputs={inputs}>
+					inputs={inputs}
+					units={units}>
 					<ResultContainer 
 						inputsWithValue={inputsWithValue} 
 						inputs={inputs} />

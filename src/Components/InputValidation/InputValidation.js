@@ -16,7 +16,10 @@ const InputValidation = props => {
 
 	// Validate input content
 	for(let input of props.inputs){
-		if(input.inputValue.match(/^\d*(\.?\d+?$|\.$)/) === null && input.inputValue.length > 0){
+		const unitRegex = props.units[input.inputName].find(el => el.unit === input.inputUnit).inputValidation;
+		const inputValidationRegex = unitRegex || /^\d*(\.?\d+?$|\.$)/;
+		
+		if(input.inputValue.match(inputValidationRegex) === null && input.inputValue.length > 0){
 			inputsValid = false;
 		}
 	}

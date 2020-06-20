@@ -10,7 +10,10 @@ const useStyle = makeStyles(theme => ({
 	headline:{
 		fontWeight:400,
 		borderBottom:"3px solid transparent",
-		borderBottomColor:theme.palette.primary.main
+		borderBottomColor:theme.palette.primary.main,
+		[theme.breakpoints.down("xs")]: {
+			fontSize:"23.3vw"
+		}
 	},
 	subtitle:{
 		marginLeft:theme.spacing(1)
@@ -28,12 +31,12 @@ const Header = () => {
 				Pacecalc
 			</Typography>
 
-			<Typography
+			{/* <Typography
 				variant="subtitle2"
 				component="h2"
 				className={classes.subtitle}>
 				v2.1
-			</Typography>
+			</Typography> */}
 		</Grid>
 	);
 };

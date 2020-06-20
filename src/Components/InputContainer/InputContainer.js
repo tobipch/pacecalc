@@ -41,8 +41,8 @@ const InputContainer = props => {
 			<Grid 
 				container
 				key={input.inputName}
-				spacing={2}>
-				<Grid item xs={9}>
+				spacing={1}>
+				<Grid item xs={6} sm={8}>
 					<InputField
 						adornment={input.inputUnit}
 						value={input.inputValue}
@@ -53,7 +53,7 @@ const InputContainer = props => {
 					/>
 				</Grid>
 				
-				<Grid item xs={2}>
+				<Grid item xs={4} sm={3}>
 					<Select 
 						className={classes.unitSelect}
 						variant="outlined"
@@ -63,7 +63,7 @@ const InputContainer = props => {
 					</Select>
 				</Grid>
 
-				<Grid item xs={1}>
+				<Grid item xs={2} sm={1}>
 					<IconButton 
 						className={classes.iconButton}
 						color="primary"

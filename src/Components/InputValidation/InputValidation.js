@@ -12,8 +12,6 @@ const InputValidation = props => {
 	} else if(props.inputsWithValue.length === 0){
 		inputsValid = false;
 		validationResult = <Alert severity="info">Enter two values to calculate the third one!</Alert>;
-	} else if(props.inputsWithValue.length === 1){
-		inputsValid = false;
 	}
 
 	// Validate input content

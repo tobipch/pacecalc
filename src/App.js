@@ -20,8 +20,8 @@ const useStyle = makeStyles(theme => ({
 
 const initialState = {
 	inputs: [
-		{inputName:"distance", inputValue:"", inputUnit:"m", normalizedValue:null},
-		{inputName:"time", inputValue:"", inputUnit:"sec", normalizedValue:null},
+		{inputName:"distance", inputValue:"", inputUnit:"km", normalizedValue:null},
+		{inputName:"time", inputValue:"", inputUnit:"min", normalizedValue:null},
 		{inputName:"pace", inputValue:"", inputUnit:"min/km", normalizedValue:null}
 	],
 	inputsWithValue: []
@@ -29,18 +29,18 @@ const initialState = {
 
 const units = {
 	distance: [
-		{unit:"m", inputHelper:"", normalize: val => val},
-		{unit:"km", inputHelper:"", normalize: val => val*1000},
-		{unit:"mi", inputHelper:"", normalize: val => val*1000*1.609344}
+		{unit:"m", inputHelper:"", normalize:val => val},
+		{unit:"km", inputHelper:"", normalize:val => val*1000},
+		{unit:"mi", inputHelper:"", normalize:val => val*1000*1.609344}
 	],
 	time: [
-		{unit:"sec", inputHelper:"", normalize: val => val},
-		{unit:"min", inputHelper:"", normalize: val => val*60},
-		{unit:"h", inputHelper:"", normalize: val => val*3600}
+		{unit:"sec", inputHelper:"", normalize:val => val},
+		{unit:"min", inputHelper:"", normalize:val => val*60},
+		{unit:"h", inputHelper:"", normalize:val => val*3600}
 	],
 	pace: [
-		{unit:"min/km", inputHelper:"", normalize: val => val},
-		{unit:"min/mi", inputHelper:"", normalize: val => val/1.609344}
+		{unit:"min/km", inputHelper:"", normalize:val => val},
+		{unit:"min/mi", inputHelper:"", normalize:val => val/1.609344}
 	]
 }
 
